@@ -198,5 +198,249 @@ public class Main {
                 System.out.println();
                 System.out.println("ArrayList elements: ");
                 System.out.println(numlist);
+
+        //11. Find Common Elements
+        ArrayList<String> country1 = new ArrayList<>();
+        country1.add("Brazil");
+        country1.add("Estonia");
+        country1.add("Zimbabwe");
+        country1.add("Kyrgyzstan");
+
+        ArrayList<String> country2 = new ArrayList<>();
+        country2.add("Brazil");
+        country2.add("Romania");
+        country2.add("New Zealand");
+        country2.add("Kyrgyzstan");
+
+        ArrayList<String> commonCountries = new ArrayList<>();
+
+        for (String country : country1) {
+            if (country2.contains(country)) {
+                commonCountries.add(country);
+            }
+        }
+        System.out.println();
+        System.out.println("Countries list #1: " + country1);
+        System.out.println("Countries list #2: " + country2);
+        System.out.println("Common countries: " + commonCountries);
+
+        //12. Remove Even-Length Strings
+        ArrayList<String> names = new ArrayList<>();
+        names.add("Alita");
+        names.add("Mark");
+        names.add("Joshua");
+        names.add("Evelynn");
+        names.add("Kai");
+        names.add("Adilya");
+
+        System.out.println();
+        System.out.println("Names: " + names);
+
+        for (int i = 0; i < names.size(); i++) {
+            if (names.get(i).length() % 2 == 0) {
+                names.remove(i);
+                i--;
+            }
+        }
+
+        System.out.println("Updated list: " + names);
+
+        //13. Find Smallest Element
+        ArrayList<String> songs = new ArrayList<>();
+        songs.add("like Jennie");
+        songs.add("Qaragat");
+        songs.add("All for us");
+        songs.add("Shut Down");
+        songs.add("С тобой");
+        songs.add("number one girl");
+
+        String shortest = songs.get(0);
+        for (String song : songs) {
+            if (song.length() < shortest.length()){
+                shortest = song;
+            }
+        }
+
+        System.out.println();
+        System.out.println("Songs: " + songs);
+        System.out.println("Shortest song name: ");
+        System.out.println(shortest);
+        System.out.println("Length: " + shortest.length());
+
+        //14. Replace All Vowels
+        ArrayList<String> words = new ArrayList<>();
+        words.add("book");
+        words.add("programming");
+        words.add("sapat");
+        words.add("university");
+        words.add("perfume");
+
+        System.out.println();
+        System.out.println("Words: " + words);
+
+        for (int i = 0; i < words.size(); i++) {
+            String word = words.get(i);
+            String newWord = "";
+
+            for (int j = 0; j < word.length(); j++) {
+                char ch = word.charAt(j);
+
+                if (ch == 'a' || ch == 'e' || ch == 'i' || ch == 'o' || ch == 'u' ||
+                        ch == 'A' || ch == 'E' || ch == 'I' || ch == 'O' || ch == 'U') {
+                    newWord += "*";
+                } else {
+                    newWord += ch;
+                }
+            }
+
+            words.set(i, newWord);
+        }
+
+        System.out.println("Updated list: " + words);
+
+        //15. Partition ArrayList
+        ArrayList<Integer> numbers = new ArrayList<>();
+        numbers.add(1);
+        numbers.add(313);
+        numbers.add(52);
+        numbers.add(4000);
+        numbers.add(90);
+        numbers.add(67);
+
+        ArrayList<Integer> evenNumbers = new ArrayList<>();
+        ArrayList<Integer> oddNumbers = new ArrayList<>();
+
+        for (int i = 0; i < numbers.size(); i++) {
+            int num = numbers.get(i);
+
+            if (num % 2 == 0) {
+                evenNumbers.add(num);
+            } else {
+                oddNumbers.add(num);
+            }
+        }
+
+        System.out.println();
+        System.out.println("Numbers: " + numbers);
+        System.out.println("Even numbers: " + evenNumbers);
+        System.out.println("Odd numbers: " + oddNumbers);
+
+        //16. Rotate Elements
+        ArrayList<String> days = new ArrayList<>();
+        days.add("Monday");
+        days.add("Tuesday");
+        days.add("Wednesday");
+        days.add("Thursday");
+        days.add("Friday");
+        days.add("Saturday");
+        days.add("Sunday");
+
+        int positions = 2; // number of positions to rotate
+
+        // Rotate to the right
+        for (int i = 0; i < positions; i++) {
+            String lastday = days.remove(days.size() - 1); // remove last element
+            days.add(0, lastday); // add it at the beginning
+        }
+
+        System.out.println();
+        System.out.println("Days after rotation: " + days);
+
+        //17. Remove Null Values
+        ArrayList<String> studnames = new ArrayList<>();
+        studnames.add("Albina");
+        studnames.add("Aiperi");
+        studnames.add(null);
+        studnames.add("Aida");
+        studnames.add(null);
+
+        System.out.println();
+        System.out.println("Student names: " + studnames);
+
+        for (int i = 0; i < studnames.size(); i++) {
+            if (studnames.get(i) == null) {
+                studnames.remove(i);
+                i--; // move index back after removal
+            }
+        }
+
+        System.out.println("Students list without nulls: " + studnames);
+
+        //18. Find Second Largest Element
+        ArrayList<String> movies2 = new ArrayList<>();
+        movies2.add("The Umbrella Academy");
+        movies2.add("Stranger Things");
+        movies2.add("Avengers");
+        movies2.add("Interstellar");
+
+        if (movies2.size() < 2) {
+            System.out.println("Not enough movies to find the second largest.");
+            return;
+        }
+
+        String largest = "";
+        String secondLargest = "";
+
+        for (int i = 0; i < movies2.size(); i++) {
+            String movie = movies2.get(i);
+
+            if (movie.length() > largest.length()) {
+                secondLargest = largest;
+                largest = movie;
+            } else if (movie.length() > secondLargest.length() && movie.length() < largest.length()) {
+                secondLargest = movie;
+            }
+        }
+
+        System.out.println();
+        System.out.println("Movies list: " + movies2);
+        System.out.println("Second largest movie title: " + secondLargest);
+
+        //19. Replace Elements with Lengths
+        ArrayList<String> fruits2 = new ArrayList<>();
+        fruits2.add("Apple");
+        fruits2.add("Banana");
+        fruits2.add("Mango");
+        fruits2.add("Pineapple");
+
+        System.out.println();
+        System.out.println("Fruits: " + fruits2);
+
+        // Loop through the list and replace each fruit with its length
+        for (int i = 0; i < fruits2.size(); i++) {
+            int length = fruits2.get(i).length();
+            fruits2.set(i, String.valueOf(length)); // convert int to String
+        }
+
+        System.out.println("Fruits replaced by their lengths: " + fruits2);
+
+        //20. Create Nested ArrayList
+        System.out.println();
+        ArrayList<String> itDepartment = new ArrayList<>();
+        itDepartment.add("Alice");
+        itDepartment.add("Bob");
+        itDepartment.add("Charlie");
+
+        ArrayList<String> hrDepartment = new ArrayList<>();
+        hrDepartment.add("David");
+        hrDepartment.add("Eva");
+
+        ArrayList<String> salesDepartment = new ArrayList<>();
+        salesDepartment.add("Frank");
+        salesDepartment.add("Grace");
+        salesDepartment.add("Hannah");
+
+        // Create an ArrayList of ArrayLists
+        ArrayList<ArrayList<String>> company = new ArrayList<>();
+        company.add(itDepartment);
+        company.add(hrDepartment);
+        company.add(salesDepartment);
+
+        for (int i = 0; i < company.size(); i++) {
+            ArrayList<String> department = company.get(i);
+            System.out.println("Department " + (i + 1) + ": " + department);
+        }
+
+
     }
 }
